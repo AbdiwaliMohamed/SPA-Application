@@ -1,0 +1,149 @@
+
+<ul class="nav nav-tabs" ng-init="data.type='cust'" style="margin-left: 400px; margin-top: -50px">
+    <li class="{{data.type=='cust'?'active':''}}"><a ng-click="data.type='cust'">Customer</a></li>
+    <li class="{{data.type=='admin'?'active':''}}"><a ng-click="data.type='admin'">Admin</a></li>
+</ul>
+<div class="text-center" ng-if="data.type=='admin'"  ng-submit="register()">
+    <div class="modal-dialog modal-login">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Admin Registration</h4>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <i class="fa fa-user"></i>
+                            <input type="text" class="form-control" ng-model="data.name"  placeholder="Name" required="required">
+                        </div>
+                        <div class="form-group">
+                            <i class="fa fa-envelope "></i>
+                            <input type="email" class="form-control" ng-model="data.email"  placeholder="Email" required="required">
+                        </div>
+                        <div class="form-group">
+                        <i class="fa fa-user"></i>
+                        <input type="text" class="form-control" ng-model="data.user"  placeholder="Username" required="required">
+                    </div>
+                        <div class="form-group">
+                            <i class="fa fa-lock"></i>
+                            <input type="password" class="form-control" ng-model="data.pass" placeholder="Password" required="required">
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary btn-block btn-lg" value="Register">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <a ui-sref="app.login">Login Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="text-center" ng-if="data.type=='cust'"  ng-submit="register()">
+    <div class="modal-dialog modal-login">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Member Registration</h4>
+                <div class="modal-body">
+                    <form method="post">
+                        <div class="form-group">
+                            <i class="fa fa-user"></i>
+                            <input type="text" class="form-control" ng-model="data.name"  placeholder="Name" required="required">
+                        </div> <div class="form-group">
+                        <i class="fa fa-phone"></i>
+                        <input type="tel" class="form-control" ng-model="data.phone" placeholder="Phone" required="required">
+                    </div> <div class="form-group">
+                        <i class="fa fa-user"></i>
+                        <input type="text" class="form-control" ng-model="data.user" placeholder="Username" required="required">
+                    </div>
+                        <div class="form-group">
+                            <i class="fa fa-lock"></i>
+                            <input type="password" class="form-control" ng-model="data.pass" placeholder="Password" required="required">
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary btn-block btn-lg" value="Register">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <a ui-sref="app.login">Login Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .modal-login {
+        color: #636363;
+        width: 350px;
+    }
+    .modal-login .modal-content {
+        padding: 20px;
+        border-radius: 5px;
+        border: none;
+    }
+    .modal-login .modal-header {
+        border-bottom: none;
+        position: relative;
+        justify-content: center;
+    }
+    .modal-login h4 {
+        text-align: center;
+        font-size: 26px;
+    }
+    .modal-login  .form-group {
+        position: relative;
+    }
+    .modal-login i {
+        position: absolute;
+        left: 13px;
+        top: 0px;
+        font-size: 18px;
+    }
+    .modal-login .form-control {
+        padding-left: 40px;
+    }
+    .modal-login .form-control:focus {
+        border-color: #00ce81;
+    }
+    .modal-login .form-control, .modal-login .btn {
+        min-height: 40px;
+        border-radius: 3px;
+    }
+    .modal-login .hint-text {
+        text-align: center;
+        padding-top: 10px;
+    }
+    .modal-login .close {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+    }
+    .modal-login .btn, .modal-login .btn:active {
+        border: none;
+        background: #00ce81 !important;
+        line-height: normal;
+    }
+    .modal-login .btn:hover, .modal-login .btn:focus {
+        background: #00bf78 !important;
+    }
+    .modal-login .modal-footer {
+        background: #ecf0f1;
+        border-color: #dee4e7;
+        text-align: center;
+        margin: 0 -20px -20px;
+        border-radius: 5px;
+        font-size: 13px;
+        justify-content: center;
+    }
+    .modal-login .modal-footer a {
+        color: #999;
+    }
+    .trigger-btn {
+        display: inline-block;
+        margin: 100px auto;
+    }
+</style>
+

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="0ab45a2a-05c7-450d-a177-a5cdb5a7ae7e" name="smart" url="http://localhost/Smart_Store">
+        <fileTransfer port="0" mountedRoot="C:\AppServ\www\Smart_Store" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>

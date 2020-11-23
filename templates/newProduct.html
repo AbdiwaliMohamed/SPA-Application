@@ -1,0 +1,30 @@
+<form class="well" ng-submit="insertProduct()">
+    <div class="form-group">
+        <label>Product_Name</label>
+        <input type="text" class="form-control" ng-model="data.name" required>
+    </div>
+    <div class="form-group">
+        <label>Price</label>
+        <input type="number" class="form-control" ng-model="data.price" required>
+    </div>
+    <div class="form-group">
+        <label>Type</label>
+        <select class="form-control" ng-model="data.type" required>
+            <option value="mobiles">Mobiles</option>
+            <option value="computers">Computers</option>
+            <option value="tablets">Tablets</option>
+            <option value="screens">Screens</option>
+            <option value="cameras">Cameras</option>
+
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Photo</label>
+        <input type="file" accept="image/*" onchange="angular.element(this).scope().changed(this.files[0])">
+    </div>
+    <img src="{{data.img}}" style="width: 40%;height: 50%;" class="center-block">
+    <button class="btn btn-success">Insert</button>
+</form>
+<script>
+
+</script>

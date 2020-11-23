@@ -1,0 +1,112 @@
+<div class="modal-header"
+     xmlns="http://www.w3.org/1999/html">
+    <h3 style="text-align: center;color: yellow">My Shopping Bag</h3>
+</div>
+<div class="modal-body" style="width: 100%">
+    <div class="row"  style="background-color: orange">
+        <div class="col-xs-3">
+            Product Name
+        </div>
+        <div class="col-xs-3">
+            Images
+        </div>
+        <div class="col-xs-3">
+            Quantity
+        </div>
+        <div class="col-xs-3">
+            Price
+        </div>
+        <div style="margin-top: -25px; float: right;margin-right: 30px">
+            Subtotal</div>
+    </div>
+    <br>
+    <div class="row" ng-repeat="item in bascket|totalFilter">
+        <div class="col-xs-3">
+            {{item.name}}
+        </div>
+        <div class="col-xs-3">
+            <img src="{{item.img}}" style="width: 35%; height:10%" alt=" " class="img-responsive invert-image" />
+        </div>
+        <div class="col-xs-3">
+            <button class="btn btn-danger btn-sm" ng-click="item.qty=item.qty-1">-</button>
+            {{item.qty}}
+            <button class="btn btn-success btn-sm" ng-click="item.qty=item.qty+1">+</button>
+        </div>
+        <div class="col-xs-3">
+            {{item.price| currency:'$'}}
+        </div>
+        <div class="" style="margin-top: -25px; float: right;margin-right: 30px">
+            {{ item.price*item.qty| currency:'$'}}
+        </div>
+        <a class="close fa fa-trash" ng-click="bascket.splice($index,1)" style="margin-top: -33px; float: right;color:red;font-size:20px"></a>
+    </div>
+    <hr>
+    <div class="row" style="color: #00c300;font-weight: bold;font-size: 20px">
+        <div class="col-xs-3 col-xs-offset-9">
+            Total:  {{total| currency:'$'}}
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Order Address</label>
+        <textarea class="form-control" ng-model="addr" placeholder="full address" required></textarea>
+    </div>
+    <button class="btn btn-success" ng-click="proceed(addr)">Proceed</button>
+</div>
+
+
+<div class="modal-header">
+    <h3 style="text-align: center;color: yellow">My Ordered product</h3>
+</div>
+<div class="modal-body" style="width: 100%">
+    <div class="row"  style="background-color: #f1d8ff">
+
+
+        <table class="table table-bordered table-hover" style="font-size: 30px">
+            <tr style="font-weight: bold">
+                <th>
+                    Products
+                </th>
+                <th>
+                    Status
+                </th>
+                <th>
+                    Delivery
+                </th>
+
+            </tr>
+            <tr ng-repeat="order in orders">
+
+                <td>
+                    <table class="table">
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Qty</th>
+                            <th>Image</th>
+                        </tr>
+                        <tr ng-repeat="product in order.products">
+                            <td>{{product.name}}</td>
+                            <td>{{product.price|currency}}</td>
+                            <td>{{product.qty}}</td>
+                            <td><img src="{{product.img}}" style="width:80px;height:40px"></td>
+                        </tr>
+                    </table>
+                </td>
+                <td>{{order.cust_status? order.cust_status:'Not ready'}}</td>
+
+                <td>
+                    <button class="btn btn-md btn-success" id="b" ng-click="receivedButton(order.cust_status,order.id)" class="right_tick">Received</button>
+                    <img src="icons/tick2.png" id="right_img" style="width: 40px;height: 40px;display: none" ng-show="x">
+
+                </td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+
+
+
+
+
